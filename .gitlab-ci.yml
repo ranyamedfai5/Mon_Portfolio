@@ -1,9 +1,11 @@
 pages:
+  stage: deploy
   script:
-    - mkdir public
-    - find . -maxdepth 1 ! -name public ! -name . -exec cp -r {} public/ \;
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
   artifacts:
     paths:
       - public
-  only:
-    - main
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
