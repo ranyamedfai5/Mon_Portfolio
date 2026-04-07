@@ -1,8 +1,7 @@
 pages:
   script:
     - mkdir public
-    - cp -r . public
-    - rm -rf public/.git
+    - find . -maxdepth 1 ! -name public ! -name . -exec cp -r {} public/ \;
   artifacts:
     paths:
       - public
