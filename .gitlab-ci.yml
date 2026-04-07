@@ -1,0 +1,10 @@
+pages:
+  script:
+    - mkdir public
+    - cp -r . public
+    - rm -rf public/.git
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
